@@ -5,22 +5,19 @@
     <title></title>
     <script>
 
-        var x = 'norway';
+       function add(x, y) {
+            return x + y;
+       }
 
-        getData.cache = {};
-        function getData(country){
-            if ( country in getData.cache) {
+       function runAnyFunction() {
 
-            } else {
-                // ajax call
-                typeof country === 'object'
-                getData['{"name":"norway"}'] = {};
-            }
-        }
+           var func = arguments[0];
+           var args = Array.prototype.slice.call(arguments, 1);
 
-        getData({
-            name: 'norway'
-        });
+           return func.apply(this, args);
+       }
+
+        console.log(runAnyFunction(add, 1, 2));
 
 
     </script>

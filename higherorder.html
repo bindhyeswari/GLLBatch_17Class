@@ -26,6 +26,10 @@
                 console.log(this);
                 return (hash in fn.memoize) ? fn.memoize[hash] :
                         fn.memoize[hash] = fn.apply(this, args);
+
+                // return ('6' in factorial.memoize)
+                // factorial.apply(this, [6])
+                // factorial(6)
             };
         }
 
@@ -42,6 +46,7 @@
         var factorial_memoized = memoize(factorial);
         console.log(factorial_memoized(6));
         console.dir(factorial_memoized.memoize);
+
 
         // Class project - run jsPerf or custom efficiency check
 
