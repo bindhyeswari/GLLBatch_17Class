@@ -1,4 +1,12 @@
+
+Date.getEpoch = function(){
+    return (new Date()).valueOf();
+};
+
 document.addEventListener('DOMContentLoaded', function (){
+
+
+    console.log(Date.getEpoch());
 
     // make an ajax call - display data on the console
 
@@ -26,7 +34,8 @@ getCountryDetail.cache = {};
 function getCountryDetail(country_name, fn){
 
     // logging out the cache
-    console.log('logging out cache');
+
+    console.log(Date.getEpoch() + 'logging out cache');
     console.log(JSON.stringify(getCountryDetail.cache));
 
 
@@ -36,12 +45,13 @@ function getCountryDetail(country_name, fn){
         fn(getCountryDetail.cache[country_name]);
 
     } else {
+        getCountryDetail.cache[country_name] = {};
         var url = 'http://restcountries.eu/rest/v1/name/' + country_name;
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url);
         xhr.onreadystatechange = function (){
             if ( xhr.readyState === 4 && xhr.status === 200 ) {
-                console.log('done');
+                console.log(Date.getEpoch() + 'done');
 
                 var data = JSON.parse(xhr.responseText);
 
