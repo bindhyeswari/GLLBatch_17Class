@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var doSomethingOnClick = function(){
+            // do something
+        };
+        if ( document.addEventListener ) {
+            // supported in browsers that support addEventListener
+            element.addEventListener('click', doSomethingOnClick);
+        } else {
+            var type = 'click';
+            document['on' + type] = doSomethingOnClick;
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

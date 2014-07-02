@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<!--    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+
+            function $(tag){
+                tag = tag.match('[a-zA-Z]+')[0];
+                return document.createElement(tag);
+            }
+
+           HTMLElement.prototype.html = function(str){
+               this.innerHTML = str;
+           };
+
+            HTMLElement.prototype.html = function (str){
+                this.innerHTML = str;
+                return this;
+            };
+
+            HTMLElement.prototype.addClass = function (classname){
+                // Apply the class to the div
+                // refer to the HTML element use "this" keyword
+                // div.innerHTML ==> this.innerHTML
+
+                this.className = classname;
+                return this;
+
+            };
+
+            // This function takes a DOM Element as a parameter
+            // and adds this/element to it
+            HTMLElement.prototype.appendTo = function (parent) {
+                var element = this;
+                parent.appendChild(this);
+                return element;
+            };
+
+            var div = $('div').html('asdf').addClass('myClass').appendTo(document.body);
+            console.log(div);
+
+
+            // HTMLElement.prototype <-- HTMLSpanElement.prototype <-- span
+
+
+            var span = document.createElement('span');
+            span.innerHTML = 'asdf';
+
+            span.html('im a span').appendTo(document.body);
+
+
+        });
+
+    </script>-->
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+            // Steps when a constructor is used
+            // Create an empty object
+            // Invokes the function with the empty object set to "this"
+            // returns the object
+
+            // Object.prototype <-- Function.prototype <-- Jquery
+            function Jquery(tag){
+                this.element = document.createElement(tag);
+            }
+            Jquery.prototype.html = function (text) {
+                this.element.innerHTML = text;
+                return this;
+            };
+            Jquery.prototype.appendTo = function (parent) {
+                parent.appendChild(this.element);
+                return this;
+            };
+            // Object.prototype <-- Jquery.prototype <-- obj
+
+
+            var obj = new Jquery('div');
+            // {}
+            // this = {}
+            // {
+            //  element: div
+            // }
+
+
+            console.log(obj.element);
+
+            obj.html('asdf').appendTo(document.body);
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
